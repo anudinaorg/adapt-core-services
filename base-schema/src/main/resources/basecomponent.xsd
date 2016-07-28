@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://schemas.anudia.com/services/basecomponent"
+	targetNamespace="http://schemas.anudia.com/services/basecomponent"
+	elementFormDefault="qualified" version="1.0">
+	<xsd:notation name="Adapt-BaseComponent"
+		public="http://schemas.anudia.com/services/basecomponent" />
+
+	<xsd:complexType name="baseEntity">
+		<xsd:attribute name="createTs" type="xsd:dateTime" use="optional" />
+		<xsd:attribute name="createdBy" type="xsd:string" use="optional" />
+		<xsd:attribute name="updatedBy" type="xsd:string" use="optional" />
+		<xsd:attribute name="expiredTs" type="xsd:dateTime" use="optional" />
+		<xsd:attribute name="_hashCode" type="xsd:integer" />
+		<xsd:attribute name="_class" type="xsd:string" />
+	</xsd:complexType>
+	<xsd:complexType name="lookupEntity">
+		<xsd:complexContent>
+			<xsd:extension base="tns:baseEntity">
+				<xsd:annotation>
+					<xsd:appinfo>Standard lookup schema</xsd:appinfo>
+					<xsd:documentation>
+						Static Link/Lookup table data
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:attribute name="id" type="xsd:long"/>
+				<xsd:attribute name="code" type="xsd:string"/>
+				<xsd:attribute name="description" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>
